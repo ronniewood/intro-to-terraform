@@ -37,7 +37,7 @@ resource "aws_instance" "example" {
               EOF
 
   tags = {
-    Name = "terraform-example"
+    Name = "terraform-new Name"
   }
 }
 
