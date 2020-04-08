@@ -10,6 +10,7 @@
 
 terraform {
   required_version = ">= 0.12"
+
 }
 
 # ------------------------------------------------------------------------------
@@ -17,7 +18,9 @@ terraform {
 # ------------------------------------------------------------------------------
 
 provider "aws" {
-  region = "us-west-2"
+  region                  = "us-west-2"
+  shared_credentials_file = "/user/ronwood/.aws/credentials"
+  profile                 = "terrable2"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -26,7 +29,7 @@ provider "aws" {
 
 resource "aws_instance" "example" {
   # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type in us-east-2
-  ami                    = "ami-0c55b159cbfafe1f0"
+  ami                    = "ami-07a6716a7f1ee6d61"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.instance.id]
 
